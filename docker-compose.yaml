@@ -1,0 +1,16 @@
+services:
+  mainnet:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/templates/default.conf.template
+      - ./cache:/var/cache/nginx
+    environment:
+      - JUNO_GW_API_KEY=${JUNO_GW_API_KEY:-}
+      - MAINNET_FEEDER=${MAINNET_FEEDER:-https://feeder.alpha-mainnet.starknet.io}
+      - MAINNET_GATEWAY=${MAINNET_GATEWAY:-https://alpha-mainnet.starknet.io}
+      - SEPOLIA_FEEDER=${SEPOLIA_FEEDER:-https://feeder.alpha-sepolia.starknet.io}
+      - SEPOLIA_GATEWAY=${SEPOLIA_GATEWAY:-https://alpha-sepolia.starknet.io}
+      - INTEGRATION_SEPOLIA_FEEDER=${INTEGRATION_SEPOLIA_FEEDER:-https://feeder.integration-sepolia.starknet.io}
+      - INTEGRATION_SEPOLIA_GATEWAY=${INTEGRATION_SEPOLIA_GATEWAY:-https://integration-sepolia.starknet.io}
