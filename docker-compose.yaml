@@ -4,7 +4,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./nginx/default.conf:/etc/nginx/templates/default.conf.template
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template
       - ./cache:/var/cache/nginx
     environment:
       - JUNO_GW_API_KEY=${JUNO_GW_API_KEY:-}
